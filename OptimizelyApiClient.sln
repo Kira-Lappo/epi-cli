@@ -1,12 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OptimizelyApiClient.Cli", "OptimizelyApiClient.Cli\OptimizelyApiClient.Cli.csproj", "{F2709C83-5EAD-4E1C-AE19-E654E8D76E07}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OptimizelyApiClient.Cli", "src\OptimizelyApiClient.Cli\OptimizelyApiClient.Cli.csproj", "{F2709C83-5EAD-4E1C-AE19-E654E8D76E07}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution-items", "solution-items", "{651BD1BE-EDC5-4293-9E0B-4B7E04FFDDC4}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
 		publish.ps1 = publish.ps1
 		.editorconfig = .editorconfig
+		README.md = README.md
 	EndProjectSection
 EndProject
 Global

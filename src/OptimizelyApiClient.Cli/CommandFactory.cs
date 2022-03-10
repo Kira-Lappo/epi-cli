@@ -17,7 +17,11 @@ public partial class CommandFactory
 		{
 			CreateImportCommandArea(),
 			CreateCatalogCommandArea(),
+			CreateJobCommandArea(),
 		};
+
+		// to support IConfiguration setups
+		rootCommand.TreatUnmatchedTokensAsErrors = false;
 
 		return rootCommand;
 	}

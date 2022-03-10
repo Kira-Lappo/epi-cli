@@ -1,5 +1,6 @@
 using System.Net;
 using System.Net.Http.Headers;
+using Serilog;
 
 namespace OptimizelyApiClient.Cli.Client;
 
@@ -9,10 +10,12 @@ public partial class ServerApiClient : IDisposable
 
 	private readonly HttpClient _client;
 	private readonly Dictionary<string, string> _tokenFormParams;
+	private readonly ILogger _logger;
 
-	public ServerApiClient(ServerApiOptions options)
+	public ServerApiClient(ServerApiOptions options, ILogger logger)
 	{
-		_client  = CreateClient(options);
+		_logger     = logger;
+		_client          = CreateClient(options);
 		_tokenFormParams = BuildGetTokenFormParameters(options);
 	}
 
@@ -30,7 +33,7 @@ public partial class ServerApiClient : IDisposable
 	private static HttpClient CreateClient(ServerApiOptions options)
 	{
 		var client = new HttpClient();
-		client.BaseAddress = options.BaseAddress;
+		client.BaseAddress = options.BaseUri;
 		return client;
 	}
 
@@ -56,9 +59,7 @@ public partial class ServerApiClient : IDisposable
 		{
 			{ "client_id", options.ClientId },
 			{ "client_secret", options.ClientSecret },
-			{ "grant_type", "password" },
-			{ "username", options.UserName },
-			{ "password", options.Password }
+			{ "grant_type", "client_credentials" },
 		};
 	}
 }
